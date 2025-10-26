@@ -5,25 +5,36 @@
 #include "Client.h"
 #include "Compte.h"
 #include "Date.h"
-
+using namespace bank;
 
 
 
 int main()
 {
-	Compte * compte1= new Compte("1234567899", 1000.00, "MAD");
-	//Compte compte2("12345678999", 10000.00, "MAD");
-	Date date1(15, 11, 2005);
+Date* d = new Date(1, 11, 2000);
+Date* dateCreation = new Date(22, 5, 2025);
+Compte * c1= new Compte("MAD", 1000.00, dateCreation);
+Compte c2("MAD", 1000000.00, dateCreation);
+Compte c3("EUR", 10000000.00, dateCreation);
+Compte c4("EUR", 1000.00, dateCreation);
 
-	Client client1("HIBA", "CHARARI", "BB239369", compte1 , date1);
-	client1.afficherClient();
+Client cl1 = Client::creator("houda", "sabir", "BB1234", c1, d);
+Client cl2 = Client::creator("HIBA", "CHARARI", "BB1234", &c2, d);
+Client cl3 = Client::creator("HANAN", "KAMIL", "BB1234", &c3, d);
+Client cl4 = Client::creator("NAJIB", "HADAN", "BB1234", &c4, d);
 
-	//Client* client2=new Client("HIBA", "CHARARI", "BB239369", compte2, date1);
-	//client2->afficherClient();
+
+    cl1.afficherClient();
+	cl2.afficherClient();
+	cl3.afficherClient();
+	cl4.afficherClient();
+
+	delete d;
+	delete dateCreation;
+	delete c1;
 
 
-	delete compte1;
-	//delete client2;
+	
 
 }
 
