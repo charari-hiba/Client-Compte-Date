@@ -3,21 +3,23 @@
 using namespace std;
 #include "Compte.h"
 #include "Date.h"
-
+namespace bank {
 class Client
 {
-	private:
+private:
+    static int ninstance;
+    static int idcount;
+    int numclient;
 	string nom;
 	string prenom;
 	string CIN;
 	Compte* compte;
-	//Compte& compte;
-	Date dateNaissance;
+	Date* dateNaissance;
+    Client(string , string , string , Compte *, Date *);
 public:
 	
-	Client(string , string , string , Compte *, Date );
-	//Client(string, string, string, Compte&, Date);
+	static Client creator(string , string , string , Compte *, Date *);
 	void afficherClient() const;
 	~Client();
 };
-
+}
