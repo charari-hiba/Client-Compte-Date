@@ -9,7 +9,7 @@ class Date
 	int mois;
 	int annee;
 public:
-	
+	Date();
 	Date(int, int, int);
 	void afficherDate() const;
 	~Date();
