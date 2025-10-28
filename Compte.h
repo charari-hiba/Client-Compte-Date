@@ -6,10 +6,11 @@ namespace bank{
 
 class Compte
 {
-	private:
+protected:
+    double solde;
+private:
     static int count;
 	int numeroCompte;
-	double solde;
 	string devise;
     Date* datecreation;
 public:
